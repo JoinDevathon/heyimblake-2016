@@ -2,6 +2,7 @@ package org.devathon.contest2016.localization;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Bukkit;
 import org.bukkit.boss.BarColor;
 import org.bukkit.boss.BarStyle;
@@ -44,6 +45,14 @@ public enum Language {
 
     public String getFileName() {
         return "messages_" + this.toString() + ".json";
+    }
+
+    public String getTranslation(String key) {
+       return this == ENGLISH ? ChatColor.translateAlternateColorCodes('&', this.stringsMap.getOrDefault(key, "Invalid Key: " + key)) : ChatColor.translateAlternateColorCodes('&', this.stringsMap.getOrDefault(key, ENGLISH.getString(key)))
+    }
+
+    public String getFormattedTranslation(String key, Object... params) {
+        return String.format(this.getTranslation(key), params);
     }
 
     public void initialize() {
