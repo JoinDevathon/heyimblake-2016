@@ -9,9 +9,9 @@ import net.md_5.bungee.api.ChatColor;
  *         https://heyimblake.me
  */
 public class Constants {
-    public static final ChatColor BASE_COLOR = ChatColor.GRAY;
-    public static final ChatColor ACCENT_COLOR = ChatColor.GOLD;
+    public static final ChatColor BASE_COLOR = ChatColor.GREEN;
+    public static final ChatColor ACCENT_COLOR = ChatColor.YELLOW;
     public static final ChatColor ERROR_COLOR = ChatColor.RED;
     public static final ChatColor SUCCESS_COLOR = ChatColor.GREEN;
-    public static final String TAG = ChatColor.DARK_GRAY + "" + '\u2502' + ChatColor.AQUA + ChatColor.BOLD + "RoB0t " + ChatColor.DARK_GRAY + "" + '\u2502' + BASE_COLOR + " ";
+    public static final String TAG = ChatColor.DARK_GRAY + "" + '\u2502' + " " + ChatColor.AQUA + ChatColor.BOLD + "Robot" + ChatColor.DARK_GRAY + "" + '\u2502' + BASE_COLOR + " ";
 }

@@ -20,7 +20,7 @@ public class PlayerUtils {
         player.sendMessage(Constants.TAG + Constants.SUCCESS_COLOR + message);
     }
     public static void playErrorSound(Player player) {
-        player.playSound(player.getLocation(), Sound.BLOCK_NOTE_BASS, 10, 2);
+        player.playSound(player.getLocation(), Sound.BLOCK_NOTE_BASS, 10, 1);
     }
     public static void playClickSound(Player player) {
         player.playSound(player.getLocation(), Sound.UI_BUTTON_CLICK, 10, 3);
