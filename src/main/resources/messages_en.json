@@ -1,11 +1,17 @@
 {
   "general.command.playernotfound" : "Sorry, that player couldn't be found. Are you sure that they're online, or their name is spelt correctly?",
   "command.toggle.success.roboton": "You've made %s a Robot!",
-  "command.toggle.success.robotoff": "You've made %s a human again!",
+  "command.toggle.success.robotoff": "You've made %s a Human again!",
   "localization.menu.title": "Select a Language",
   "localization.menu.item.lore.clicktoselect": "Click to select!",
   "localization.menu.item.lore.alreadyselected": "Already selected!",
   "localization.message.setlang.fail": "This is already your language.",
   "localization.message.setlang.success":"Your language has been set to %s.",
-  "general.item.name.cancel": "Cancel"
+  "general.item.name.cancel": "Cancel",
+  "command.general.operror": "You must have OP in order to use this!",
+  "command.general.usage": "Usage: ",
+  "command.general.notrobot": "You must be a robot in order to use this!",
+  "command.general.help.title": "List of Commands:",
+  "listener.newrobot.message": "You're now a Robot! Nice to meet you, %s.",
+  "listener.removerobot.message": "You're now Human again!"
 }
