@@ -34,4 +34,8 @@ public class NewRobotEvent extends Event {
     public Robot getRobot() {
         return robot;
     }
+
+    public static HandlerList getHandlerList() {
+        return handlers;
+    }
 }
