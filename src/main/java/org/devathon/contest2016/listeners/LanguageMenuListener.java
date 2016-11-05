@@ -1,6 +1,7 @@
 package org.devathon.contest2016.listeners;
 
 import org.bukkit.ChatColor;
+import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 import org.bukkit.event.EventHandler;
@@ -34,17 +35,24 @@ public class LanguageMenuListener implements Listener {
             event.setResult(Event.Result.DENY);
             return;
         }
-        for (Language language : Language.values()) {
-            if (ChatColor.stripColor(clickedItem.getItemMeta().getDisplayName()).equals(language.getFullName())) {
-                if (LanguageManager.getLanguage(player).getAbbreviation().equals(language.getAbbreviation())) {
-                    PlayerUtils.playErrorSound(player);
-                    PlayerUtils.sendErrorMessage(player, language.getTranslation("localization.message.setlang.fail"));
-                    return;
+        if (clickedItem.getType() == Material.BOOK_AND_QUILL) {
+            for (Language language : Language.values()) {
+                if (ChatColor.stripColor(clickedItem.getItemMeta().getDisplayName()).equals(language.getFullName())) {
+                    if (LanguageManager.getLanguage(player).getAbbreviation().equals(language.getAbbreviation())) {
+                        PlayerUtils.playErrorSound(player);
+                        PlayerUtils.sendErrorMessage(player, language.getTranslation("localization.message.setlang.fail"));
+                        return;
+                    }
+                    LanguageManager.setLanguage(player, language);
+                    PlayerUtils.playClickSound(player);
+                    PlayerUtils.sentSuccessMessage(player, language.getFormattedTranslation("localization.message.setlang.success", ChatColor.YELLOW + language.getFullName()));
                 }
-                LanguageManager.setLanguage(player, language);
-                PlayerUtils.playClickSound(player);
-                PlayerUtils.sentSuccessMessage(player, language.getFormattedTranslation("localization.message.setlang.success", ChatColor.YELLOW + language.getFullName()));
             }
+            return;
+        }
+        if (clickedItem.getType() == Material.BARRIER) {
+            PlayerUtils.playClickSound(player);
+            player.closeInventory();
         }
     }
 }
