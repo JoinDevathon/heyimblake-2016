@@ -21,6 +21,7 @@
 				<directory>src/main/resources</directory>
 				<filtering>true</filtering>
 				<includes>
+					<include>plugin.yml</include>
 					<include>messages_en.json</include>
 				</includes>
 			</resource>
