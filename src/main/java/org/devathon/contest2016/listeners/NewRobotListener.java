@@ -31,6 +31,12 @@ public class NewRobotListener implements Listener {
         inventory.setLeggings(CommonItemStacks.leggings(language));
         inventory.setBoots(CommonItemStacks.boots(language));
 
+        player.setAllowFlight(true);
+        player.setFlying(true);
+
+        language.getRobotActiveBar().addPlayer(player);
+        language.getRobotNotActiveBar().removePlayer(player);
+
         GadgetManager.getInstance().getGadgets().forEach(gadget -> inventory.addItem(gadget.getItem(language)));
     }
 }

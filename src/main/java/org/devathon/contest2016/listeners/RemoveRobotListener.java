@@ -6,6 +6,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.inventory.PlayerInventory;
 import org.devathon.contest2016.events.RemoveRobotEvent;
 import org.devathon.contest2016.gadget.GadgetManager;
+import org.devathon.contest2016.localization.Language;
 import org.devathon.contest2016.localization.LanguageManager;
 import org.devathon.contest2016.utils.CommonItemStacks;
 import org.devathon.contest2016.utils.PlayerUtils;
@@ -20,12 +21,20 @@ public class RemoveRobotListener implements Listener {
     @EventHandler
     public void onRemoveRobot(RemoveRobotEvent event) {
         Player player = event.getPlayer();
-        PlayerUtils.sendSuccessMessage(player, LanguageManager.getLanguage(player).getTranslation("listener.removerobot.message"));
+        Language language = LanguageManager.getLanguage(player);
+        PlayerUtils.sendSuccessMessage(player, language.getTranslation("listener.removerobot.message"));
         PlayerInventory inventory = player.getInventory();
         inventory.setHelmet(null);
         inventory.setChestplate(null);
         inventory.setLeggings(null);
         inventory.setBoots(null);
-        GadgetManager.getInstance().getGadgets().forEach(gadget -> inventory.remove(gadget.getItem(LanguageManager.getLanguage(player))));
+
+        player.setFlying(false);
+        player.setAllowFlight(false);
+
+        language.getRobotActiveBar().removePlayer(player);
+        language.getRobotNotActiveBar().addPlayer(player);
+
+        GadgetManager.getInstance().getGadgets().forEach(gadget -> inventory.remove(gadget.getItem(language)));
     }
 }

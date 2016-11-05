@@ -4,6 +4,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerQuitEvent;
+import org.devathon.contest2016.localization.LanguageManager;
 import org.devathon.contest2016.robotutils.RobotManager;
 
 /**
@@ -18,5 +19,6 @@ public class PlayerQuitListener implements Listener {
         Player player = event.getPlayer();
         if (RobotManager.getInstance().isRobot(player))
             RobotManager.getInstance().getRobotOf(player).remove();
+        LanguageManager.getLanguage(player).getRobotActiveBar().removePlayer(player);
     }
 }

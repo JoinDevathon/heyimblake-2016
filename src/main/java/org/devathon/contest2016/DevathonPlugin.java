@@ -1,5 +1,6 @@
 package org.devathon.contest2016;
 
+import org.bukkit.ChatColor;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.devathon.contest2016.commands.RobotBaseCommand;
@@ -37,6 +38,8 @@ public class DevathonPlugin extends JavaPlugin {
 
     private void initializeLanguages() {
         Arrays.stream(Language.values()).forEach(Language::initialize);
+        Arrays.stream(Language.values()).forEach(language -> language.getRobotActiveBar().setTitle(ChatColor.AQUA + "" + ChatColor.BOLD + language.getTranslation("localization.bossbar.roboton")));
+        Arrays.stream(Language.values()).forEach(language -> language.getRobotNotActiveBar().setTitle(ChatColor.GRAY + "" + ChatColor.BOLD + language.getTranslation("localization.bossbar.robotoff")));
     }
 
     private void registerListeners() {

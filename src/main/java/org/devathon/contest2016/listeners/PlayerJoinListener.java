@@ -10,6 +10,7 @@ import org.devathon.contest2016.DevathonPlugin;
 import org.devathon.contest2016.localization.Language;
 import org.devathon.contest2016.localization.LanguageManager;
 import org.devathon.contest2016.localization.LanguageMenu;
+import org.devathon.contest2016.robotutils.RobotManager;
 import org.devathon.contest2016.utils.CommonItemStacks;
 
 /**
@@ -38,5 +39,11 @@ public class PlayerJoinListener implements Listener {
             inventory.setLeggings(null);
         if (inventory.getBoots() == CommonItemStacks.boots(language))
             inventory.setBoots(null);
+
+        player.setFlying(false);
+        player.setAllowFlight(false);
+
+        language.getRobotActiveBar().removePlayer(player);
+        language.getRobotNotActiveBar().addPlayer(player);
     }
 }

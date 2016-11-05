@@ -7,6 +7,7 @@ import org.devathon.contest2016.commands.RobotSubCommandExecutor;
 import org.devathon.contest2016.commands.RobotSubCommandHandler;
 import org.devathon.contest2016.localization.Language;
 import org.devathon.contest2016.localization.LanguageManager;
+import org.devathon.contest2016.robotutils.RobotManager;
 import org.devathon.contest2016.utils.PlayerUtils;
 
 /**
@@ -36,11 +37,19 @@ public class LanguageSubCMD extends AnnotatedRobotSubCommand {
             if (arg.equalsIgnoreCase(lang.getAbbreviation())) {
                 LanguageManager.setLanguage(player, lang);
                 PlayerUtils.sendSuccessMessage(player, lang.getFormattedTranslation("localization.message.setlang.success", ChatColor.YELLOW + lang.getFullName()));
+                if (RobotManager.getInstance().isRobot(player)) {
+                    lang.getRobotActiveBar().addPlayer(player);
+                    lang.getRobotNotActiveBar().removePlayer(player);
+                    return;
+                }
+                lang.getRobotActiveBar().removePlayer(player);
+                lang.getRobotNotActiveBar().addPlayer(player);
                 return;
             }
             allLanguages += lang.getAbbreviation() + ", ";
         }
         PlayerUtils.sendErrorMessage(player, LanguageManager.getLanguage(player).getTranslation("command.language.invalidlang"));
         PlayerUtils.sendErrorMessage(player, allLanguages);
+
     }
 }

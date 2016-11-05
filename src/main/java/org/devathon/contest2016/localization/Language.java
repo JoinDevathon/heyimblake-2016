@@ -26,8 +26,8 @@ import java.util.Map;
  *         https://heyimblake.me
  */
 public enum Language {
-    ENGLISH("en", "English", new HashMap<>(), Bukkit.createBossBar("en", BarColor.RED, BarStyle.SOLID), Bukkit.createBossBar("en", BarColor.BLUE, BarStyle.SOLID), false),
-    SPANISH("es", "Español", new HashMap<>(), Bukkit.createBossBar("es", BarColor.RED, BarStyle.SOLID), Bukkit.createBossBar("es", BarColor.BLUE, BarStyle.SOLID), false);
+    ENGLISH("en", "English", new HashMap<>(), Bukkit.createBossBar("en", BarColor.RED, BarStyle.SOLID), Bukkit.createBossBar("en", BarColor.YELLOW, BarStyle.SOLID), false),
+    SPANISH("es", "Español", new HashMap<>(), Bukkit.createBossBar("es", BarColor.RED, BarStyle.SOLID), Bukkit.createBossBar("es", BarColor.YELLOW, BarStyle.SOLID), false);
 
     private String abbreviation, fullName;
     private Map<String, String> stringsMap;
