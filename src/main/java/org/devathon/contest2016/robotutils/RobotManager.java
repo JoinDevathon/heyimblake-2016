@@ -17,7 +17,7 @@ public class RobotManager {
         return instance;
     }
 
-    private Map<Player, Robot> playerRobotMap = new HashMap<>();
+    public Map<Player, Robot> playerRobotMap = new HashMap<>();
 
     public boolean isRobot(Player player) {
         return playerRobotMap.containsKey(player);

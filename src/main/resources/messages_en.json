@@ -12,6 +12,7 @@
   "command.general.usage": "Usage: ",
   "command.general.notrobot": "You must be a robot in order to use this!",
   "command.general.help.title": "List of Commands:",
+  "command.language.invalidlang": "Invalid language. All options:",
   "listener.newrobot.message": "You're now a Robot! Nice to meet you, %s.",
   "listener.removerobot.message": "You're now Human again!"
 }

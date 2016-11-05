@@ -5,6 +5,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import org.devathon.contest2016.commands.RobotBaseCommand;
 import org.devathon.contest2016.listeners.*;
 import org.devathon.contest2016.localization.Language;
+import org.devathon.contest2016.threads.RobotFlyingParticleThread;
 
 import java.util.Arrays;
 
@@ -22,6 +23,7 @@ public class DevathonPlugin extends JavaPlugin {
         initializeLanguages();
         registerCommands();
         registerListeners();
+        initializeThreads();
     }
 
     @Override
@@ -44,6 +46,10 @@ public class DevathonPlugin extends JavaPlugin {
         pluginManager.registerEvents(new LanguageMenuListener(), this);
         pluginManager.registerEvents(new RemoveRobotListener(), this);
         pluginManager.registerEvents(new NewRobotListener(), this);
+    }
+
+    private void initializeThreads() {
+        new RobotFlyingParticleThread().runTaskTimer(this, 0L, 5L);
     }
 
 }
