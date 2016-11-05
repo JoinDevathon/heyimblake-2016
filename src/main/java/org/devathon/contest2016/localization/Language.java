@@ -4,14 +4,19 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Material;
 import org.bukkit.boss.BarColor;
 import org.bukkit.boss.BarStyle;
 import org.bukkit.boss.BossBar;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 import org.devathon.contest2016.DevathonPlugin;
 
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -54,6 +59,26 @@ public enum Language {
         return String.format(this.getTranslation(key), params);
     }
 
+    public String getAbbreviation() {
+        return this.abbreviation;
+    }
+
+    public String getFullName() {
+        return this.fullName;
+    }
+
+    public BossBar getRobotNotActiveBar() {
+        return this.robotNotActiveBar;
+    }
+
+    public BossBar getRobotActiveBar() {
+        return this.robotActiveBar;
+    }
+
+    public boolean isInitialized() {
+        return this.initialized;
+    }
+
     public void initialize() {
         if (this.initialized)
             return;
@@ -63,6 +88,19 @@ public enum Language {
         JsonObject json = new JsonParser().parse(new InputStreamReader(is)).getAsJsonObject();
         json.entrySet().forEach(stringJsonElementEntry -> this.stringsMap.put(stringJsonElementEntry.getKey(), stringJsonElementEntry.getValue().getAsString()));
         this.initialized = true;
+    }
+
+    public ItemStack getGUIItem(String uuid) {
+        ItemStack itemStack = new ItemStack(Material.BOOK_AND_QUILL);
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        itemMeta.setDisplayName(ChatColor.GREEN + this.fullName);
+        List<String> lore = new ArrayList<>();
+        lore.add(" ");
+        lore.add(LanguageManager.getLanguage(uuid) == this ? ChatColor.RED + this.getTranslation("localization.menu.item.lore.alreadyselected") : ChatColor.YELLOW + this.getTranslation("localization.menu.item.lore.alreadyselected"));
+        lore.add(" ");
+        itemMeta.setLore(lore);
+        itemStack.setItemMeta(itemMeta);
+        return itemStack;
     }
 
 
