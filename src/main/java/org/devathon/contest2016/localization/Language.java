@@ -2,12 +2,11 @@ package org.devathon.contest2016.localization;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.boss.BarColor;
 import org.bukkit.boss.BarStyle;
 import org.bukkit.boss.BossBar;
-import org.bukkit.craftbukkit.libs.org.ibex.nestedvm.util.Seekable;
 import org.devathon.contest2016.DevathonPlugin;
 
 import java.io.InputStream;
