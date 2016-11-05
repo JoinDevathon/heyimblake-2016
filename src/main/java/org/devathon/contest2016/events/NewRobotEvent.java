@@ -27,5 +27,11 @@ public class NewRobotEvent extends Event {
         return handlers;
     }
 
+    public Player getPlayer() {
+        return player;
+    }
 
+    public Robot getRobot() {
+        return robot;
+    }
 }

@@ -3,9 +3,7 @@ package org.devathon.contest2016;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.devathon.contest2016.commands.RobotBaseCommand;
-import org.devathon.contest2016.listeners.LanguageMenuListener;
-import org.devathon.contest2016.listeners.PlayerJoinListener;
-import org.devathon.contest2016.listeners.PlayerQuitListener;
+import org.devathon.contest2016.listeners.*;
 import org.devathon.contest2016.localization.Language;
 
 import java.util.Arrays;
@@ -44,6 +42,8 @@ public class DevathonPlugin extends JavaPlugin {
         pluginManager.registerEvents(new PlayerJoinListener(), this);
         pluginManager.registerEvents(new PlayerQuitListener(), this);
         pluginManager.registerEvents(new LanguageMenuListener(), this);
+        pluginManager.registerEvents(new RemoveRobotListener(), this);
+        pluginManager.registerEvents(new NewRobotListener(), this);
     }
 
 }
