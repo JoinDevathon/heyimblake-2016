@@ -27,5 +27,6 @@
   "gadget.saysomething.msg1": "Beep Boop",
   "gadget.saysomething.msg2": "I'm a robot",
   "gadget.saysomething.msg3": "ERROR ERROR",
-  "gadget.saysomething.msg4": "I need to remove this rust..."
+  "gadget.saysomething.msg4": "I need to remove this rust...",
+  "gadget.laservision.name": "Laser Vision"
 }

@@ -2,6 +2,7 @@ package org.devathon.contest2016.gadget;
 
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
+import org.devathon.contest2016.gadget.gadgets.LaserVisionGadget;
 import org.devathon.contest2016.gadget.gadgets.SaySomethingGadget;
 import org.devathon.contest2016.localization.Language;
 import org.devathon.contest2016.localization.LanguageManager;
@@ -54,6 +55,7 @@ public class GadgetManager {
 
     private void initializeGadgets() {
         registerGadget(new SaySomethingGadget());
+        registerGadget(new LaserVisionGadget());
     }
 
     private void registerGadget(Gadget gadget) {
