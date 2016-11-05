@@ -6,6 +6,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.inventory.PlayerInventory;
 import org.devathon.contest2016.events.NewRobotEvent;
+import org.devathon.contest2016.gadget.GadgetManager;
 import org.devathon.contest2016.localization.Language;
 import org.devathon.contest2016.localization.LanguageManager;
 import org.devathon.contest2016.utils.CommonItemStacks;
@@ -29,5 +30,7 @@ public class NewRobotListener implements Listener {
         inventory.setChestplate(CommonItemStacks.chestplate(language));
         inventory.setLeggings(CommonItemStacks.leggings(language));
         inventory.setBoots(CommonItemStacks.boots(language));
+
+        GadgetManager.getInstance().getGadgets().forEach(gadget -> inventory.addItem(gadget.getItem(language)));
     }
 }

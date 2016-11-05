@@ -4,9 +4,13 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.inventory.PlayerInventory;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.devathon.contest2016.DevathonPlugin;
+import org.devathon.contest2016.localization.Language;
+import org.devathon.contest2016.localization.LanguageManager;
 import org.devathon.contest2016.localization.LanguageMenu;
+import org.devathon.contest2016.utils.CommonItemStacks;
 
 /**
  * Created by heyimblake on 11/5/2016.
@@ -24,5 +28,15 @@ public class PlayerJoinListener implements Listener {
                 LanguageMenu.showToPlayer(player);
             }
         }.runTaskLater(DevathonPlugin.getInstance(), 10L);
+        PlayerInventory inventory = player.getInventory();
+        Language language = LanguageManager.getLanguage(player);
+        if (inventory.getHelmet() == CommonItemStacks.helmet(language))
+            inventory.setHelmet(null);
+        if (inventory.getChestplate() == CommonItemStacks.chestplate(language))
+            inventory.setChestplate(null);
+        if (inventory.getLeggings() == CommonItemStacks.leggings(language))
+            inventory.setLeggings(null);
+        if (inventory.getBoots() == CommonItemStacks.boots(language))
+            inventory.setBoots(null);
     }
 }
