@@ -35,6 +35,8 @@ public class LanguageSubCMD extends AnnotatedRobotSubCommand {
         String allLanguages = "";
         for (Language lang : Language.values()) {
             if (arg.equalsIgnoreCase(lang.getAbbreviation())) {
+                LanguageManager.getLanguage(player).getRobotNotActiveBar().removePlayer(player);
+                LanguageManager.getLanguage(player).getRobotActiveBar().removePlayer(player);
                 LanguageManager.setLanguage(player, lang);
                 PlayerUtils.sendSuccessMessage(player, lang.getFormattedTranslation("localization.message.setlang.success", ChatColor.YELLOW + lang.getFullName()));
                 if (RobotManager.getInstance().isRobot(player)) {

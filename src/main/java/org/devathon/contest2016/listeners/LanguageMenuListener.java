@@ -10,6 +10,7 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
 import org.devathon.contest2016.localization.Language;
 import org.devathon.contest2016.localization.LanguageManager;
+import org.devathon.contest2016.robotutils.RobotManager;
 import org.devathon.contest2016.utils.PlayerUtils;
 
 /**
@@ -39,9 +40,19 @@ public class LanguageMenuListener implements Listener {
             for (Language language : Language.values()) {
                 if (ChatColor.stripColor(clickedItem.getItemMeta().getDisplayName()).equals(language.getFullName())) {
                     player.closeInventory();
+                    LanguageManager.getLanguage(player).getRobotNotActiveBar().removePlayer(player);
+                    LanguageManager.getLanguage(player).getRobotActiveBar().removePlayer(player);
                     LanguageManager.setLanguage(player, language);
                     PlayerUtils.playClickSound(player);
                     PlayerUtils.sendSuccessMessage(player, language.getFormattedTranslation("localization.message.setlang.success", ChatColor.YELLOW + language.getFullName()));
+                    if (RobotManager.getInstance().isRobot(player)) {
+                        language.getRobotActiveBar().addPlayer(player);
+                        language.getRobotNotActiveBar().removePlayer(player);
+                        return;
+                    }
+                    language.getRobotActiveBar().removePlayer(player);
+                    language.getRobotNotActiveBar().addPlayer(player);
+
                 }
             }
             return;

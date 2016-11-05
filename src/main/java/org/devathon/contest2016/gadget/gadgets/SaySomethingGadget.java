@@ -51,7 +51,7 @@ public class SaySomethingGadget extends Gadget {
 
     @Override
     public double usageDelay() {
-        return 2.5;
+        return 3.5;
     }
 
     @Override
