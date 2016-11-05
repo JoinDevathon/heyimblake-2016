@@ -5,6 +5,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.devathon.contest2016.commands.subcommands.LanguageSubCMD;
 import org.devathon.contest2016.commands.subcommands.ToggleSubCMD;
 import org.devathon.contest2016.localization.Language;
 import org.devathon.contest2016.localization.LanguageManager;
@@ -94,6 +95,7 @@ public class RobotBaseCommand implements CommandExecutor {
 
     public void initialize() {
         registerSubCommand(ToggleSubCMD.class);
+        registerSubCommand(LanguageSubCMD.class);
     }
 
     private void registerSubCommand(Class<? extends AnnotatedRobotSubCommand> clazz) {
