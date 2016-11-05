@@ -23,16 +23,19 @@ public class LanguageMenuListener implements Listener {
         if (!(event.getWhoClicked() instanceof Player))
             return;
         Player player = ((Player) event.getWhoClicked());
+        if (event.getClickedInventory() == null)
+            return;
         if (!event.getClickedInventory().getName().equals(LanguageManager.getLanguage(player).getTranslation("localization.menu.title")))
             return;
         if (event.getCurrentItem() == null)
             return;
         ItemStack clickedItem = event.getCurrentItem();
-        event.setResult(Event.Result.DENY);
-        if (!clickedItem.hasItemMeta())
+        if (!clickedItem.hasItemMeta()) {
+            event.setResult(Event.Result.DENY);
             return;
+        }
         for (Language language : Language.values()) {
-            if (clickedItem.getItemMeta().getDisplayName().equals(language.getFullName())) {
+            if (ChatColor.stripColor(clickedItem.getItemMeta().getDisplayName()).equals(language.getFullName())) {
                 if (LanguageManager.getLanguage(player).getAbbreviation().equals(language.getAbbreviation())) {
                     PlayerUtils.playErrorSound(player);
                     PlayerUtils.sendErrorMessage(player, language.getTranslation("localization.message.setlang.fail"));
