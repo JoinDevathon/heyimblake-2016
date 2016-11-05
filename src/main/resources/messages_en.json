@@ -5,5 +5,7 @@
   "localization.menu.title": "Select a Language",
   "localization.menu.item.lore.clicktoselect": "Click to select!",
   "localization.menu.item.lore.alreadyselected": "Already selected!",
+  "localization.message.setlang.fail": "This is already your language.",
+  "localization.message.setlang.success":"Your language has been set to %s.",
   "general.item.name.cancel": "Cancel"
 }

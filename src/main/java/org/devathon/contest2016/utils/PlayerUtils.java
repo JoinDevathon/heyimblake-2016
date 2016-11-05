@@ -1,5 +1,6 @@
 package org.devathon.contest2016.utils;
 
+import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 
 /**
@@ -17,5 +18,11 @@ public class PlayerUtils {
     }
     public static void sentSuccessMessage(Player player, String message) {
         player.sendMessage(Constants.TAG + Constants.SUCCESS_COLOR + message);
+    }
+    public static void playErrorSound(Player player) {
+        player.playSound(player.getLocation(), Sound.BLOCK_NOTE_BASS, 10, 2);
+    }
+    public static void playClickSound(Player player) {
+        player.playSound(player.getLocation(), Sound.UI_BUTTON_CLICK, 10, 3);
     }
 }
