@@ -25,13 +25,15 @@ public class PlayerInteractListener implements Listener {
             return;
         if (event.getItem() == null)
             return;
+        if (!event.getItem().hasItemMeta())
+            return;
         if (event.getAction() == null)
             return;
         if (event.getAction() == Action.LEFT_CLICK_AIR || event.getAction() == Action.LEFT_CLICK_AIR)
             return;
         ItemStack clickedItem = event.getItem();
         Language language = LanguageManager.getLanguage(player);
-        GadgetManager.getInstance().getlanguageGadgetItemsMap().get(language).keySet().stream().filter(itemStack -> itemStack == clickedItem).forEachOrdered(itemStack -> {
+        GadgetManager.getInstance().getlanguageGadgetItemsMap().get(language).keySet().stream().filter(itemStack -> itemStack.getItemMeta().getDisplayName().equals(clickedItem.getItemMeta().getDisplayName())).forEachOrdered(itemStack -> {
             GadgetManager.getInstance().performGadget(player, GadgetManager.getInstance().getlanguageGadgetItemsMap().get(language).get(itemStack));
         });
     }

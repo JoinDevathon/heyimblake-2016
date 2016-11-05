@@ -30,13 +30,18 @@ public class GadgetManager {
     }
 
     public void performGadget(Player player, Gadget gadget) {
-        if (cooldownMap.get(gadget).get(player.getUniqueId().toString()) == null || cooldownMap.get(gadget).get(player.getUniqueId().toString()) >= cooldownMap.get(gadget).get(player.getUniqueId().toString()) + (gadget.getDelay()*1000)) {
+        if (cooldownMap.get(gadget) == null || cooldownMap.get(gadget).get(player.getUniqueId().toString()) == null) {
+            gadget.run(player);
+            cooldownMap.get(gadget).put(player.getUniqueId().toString(), System.currentTimeMillis());
+            return;
+        }
+        if ((gadget.getDelay() + (cooldownMap.get(gadget).get(player.getUniqueId().toString())/1000)) <= (System.currentTimeMillis()/1000)) {
             gadget.run(player);
             cooldownMap.get(gadget).remove(player.getUniqueId().toString());
             cooldownMap.get(gadget).put(player.getUniqueId().toString(), System.currentTimeMillis());
             return;
         }
-        PlayerUtils.sendErrorMessage(player, LanguageManager.getLanguage(player).getFormattedTranslation("gadget.message.oncooldown", gadget.getDelay() - (cooldownMap.get(gadget).get(player.getUniqueId().toString())*1000)));
+        PlayerUtils.sendErrorMessage(player, LanguageManager.getLanguage(player).getFormattedTranslation("gadget.message.oncooldown", (gadget.getDelay() + (cooldownMap.get(gadget).get(player.getUniqueId().toString())/1000)) - (System.currentTimeMillis()/1000)));
     }
 
     private void initializeLanguageItems() {
@@ -49,11 +54,11 @@ public class GadgetManager {
 
     private void initializeGadgets() {
         registerGadget(new SaySomethingGadget());
-        gadgets.forEach(gadget -> cooldownMap.put(gadget, null));
     }
 
     private void registerGadget(Gadget gadget) {
         gadgets.add(gadget);
+        cooldownMap.put(gadget, new HashMap<>());
     }
 
     public Set<Gadget> getGadgets() {
