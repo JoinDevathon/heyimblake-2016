@@ -1,0 +1,21 @@
+package org.devathon.contest2016.utils;
+
+import org.bukkit.entity.Player;
+
+/**
+ * Created by heyimblake on 11/5/2016.
+ *
+ * @author heyimblake
+ *         https://heyimblake.me
+ */
+public class PlayerUtils {
+    public static void sendMessage(Player player, String message) {
+        player.sendMessage(Constants.TAG + message);
+    }
+    public static void sendErrorMessage(Player player, String message) {
+        player.sendMessage(Constants.TAG + Constants.ERROR_COLOR + message);
+    }
+    public static void sentSuccessMessage(Player player, String message) {
+        player.sendMessage(Constants.TAG + Constants.SUCCESS_COLOR + message);
+    }
+}
