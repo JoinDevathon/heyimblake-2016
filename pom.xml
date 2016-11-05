@@ -7,12 +7,25 @@
     <groupId>org.devathon</groupId>
     <artifactId>DevathonProject</artifactId>
     <version>1.0-SNAPSHOT</version>
+	<description>A project for the Devathon contest</description>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
+
+	<build>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+				<includes>
+					<include>messages_en.json</include>
+				</includes>
+			</resource>
+		</resources>
+	</build>
 
 	<dependencies>
 		<dependency>

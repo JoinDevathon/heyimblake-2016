@@ -1,9 +1,7 @@
-name: Devathon Project
-description: A project for the Devathon contest
-version: 1.0.0
+name: ${project.artifactId}
+description: ${project.description}
+version: ${project.version}
 author: heyimblake
+main: org.devathon.contest2016.DevathonPlugin
 commands:
     robot:
-
-main: org.devathon.contest2016.DevathonPlugin
-
