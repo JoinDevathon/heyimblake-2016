@@ -1,6 +1,5 @@
 package org.devathon.contest2016.commands;
 
-import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 /**
@@ -11,15 +10,15 @@ import org.bukkit.entity.Player;
  */
 public class RobotSubCommandHandler {
 
-    private CommandSender commandSender;
+    private Player commandSender;
     private String[] args;
 
-    public RobotSubCommandHandler(CommandSender commandSender, String[] args) {
+    public RobotSubCommandHandler(Player commandSender, String[] args) {
         this.commandSender = commandSender;
         this.args = args;
     }
 
-    public CommandSender getCommandSender() {
+    public Player getPlayer() {
         return this.commandSender;
     }
 
@@ -27,7 +26,4 @@ public class RobotSubCommandHandler {
         return this.args;
     }
 
-    public boolean isPlayer() {
-        return this.commandSender instanceof Player;
-    }
 }

@@ -10,7 +10,6 @@ import org.devathon.contest2016.localization.LanguageManager;
 import org.devathon.contest2016.robotutils.Robot;
 import org.devathon.contest2016.robotutils.RobotCreator;
 import org.devathon.contest2016.robotutils.RobotManager;
-import org.devathon.contest2016.utils.Constants;
 import org.devathon.contest2016.utils.PlayerUtils;
 
 /**
@@ -33,7 +32,7 @@ public class ToggleSubCMD extends AnnotatedRobotSubCommand {
 
     @Override
     public void runPlayer() {
-        Player player = ((Player) getHandler().getCommandSender());
+        Player player = getHandler().getPlayer();
         Player target = Bukkit.getPlayer(getHandler().getArgs()[0]);
         Language language = LanguageManager.getLanguage(player);
         if (target == null) {
