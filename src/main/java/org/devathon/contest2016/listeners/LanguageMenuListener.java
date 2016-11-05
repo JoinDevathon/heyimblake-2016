@@ -46,7 +46,7 @@ public class LanguageMenuListener implements Listener {
                     player.closeInventory();
                     LanguageManager.setLanguage(player, language);
                     PlayerUtils.playClickSound(player);
-                    PlayerUtils.sentSuccessMessage(player, language.getFormattedTranslation("localization.message.setlang.success", ChatColor.YELLOW + language.getFullName()));
+                    PlayerUtils.sendSuccessMessage(player, language.getFormattedTranslation("localization.message.setlang.success", ChatColor.YELLOW + language.getFullName()));
                 }
             }
             return;

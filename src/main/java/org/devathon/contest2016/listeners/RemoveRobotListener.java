@@ -17,6 +17,6 @@ public class RemoveRobotListener implements Listener {
     @EventHandler
     public void onRemoveRobot(RemoveRobotEvent event) {
         Player player = event.getPlayer();
-        PlayerUtils.sendMessage(player, LanguageManager.getLanguage(player).getTranslation("listener.removerobot.message"));
+        PlayerUtils.sendSuccessMessage(player, LanguageManager.getLanguage(player).getTranslation("listener.removerobot.message"));
     }
 }

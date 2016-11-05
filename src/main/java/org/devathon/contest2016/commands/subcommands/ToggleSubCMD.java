@@ -41,11 +41,11 @@ public class ToggleSubCMD extends AnnotatedRobotSubCommand {
         }
         if (!RobotManager.getInstance().isRobot(target)) {
             Robot targetRobot = new RobotCreator().setPlayer(target).create();
-            PlayerUtils.sentSuccessMessage(player, language.getFormattedTranslation("command.toggle.success.roboton", targetRobot.getPlayer().getName()));
+            PlayerUtils.sendSuccessMessage(player, language.getFormattedTranslation("command.toggle.success.roboton", targetRobot.getPlayer().getName()));
             return;
         }
         Robot targetRobot = RobotManager.getInstance().getRobotOf(target);
         targetRobot.remove();
-        PlayerUtils.sentSuccessMessage(player, language.getFormattedTranslation("command.toggle.success.robotoff", target.getName()));
+        PlayerUtils.sendSuccessMessage(player, language.getFormattedTranslation("command.toggle.success.robotoff", target.getName()));
     }
 }

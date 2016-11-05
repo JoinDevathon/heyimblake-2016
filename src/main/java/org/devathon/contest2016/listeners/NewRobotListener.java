@@ -17,6 +17,6 @@ public class NewRobotListener implements Listener {
     @EventHandler
     public void onNewRobotCreation(NewRobotEvent event) {
         Player player = event.getPlayer();
-        PlayerUtils.sentSuccessMessage(player, LanguageManager.getLanguage(player).getFormattedTranslation("listener.newrobot.message", event.getRobot().getRobotName()));
+        PlayerUtils.sendSuccessMessage(player, LanguageManager.getLanguage(player).getFormattedTranslation("listener.newrobot.message", event.getRobot().getRobotName()));
     }
 }

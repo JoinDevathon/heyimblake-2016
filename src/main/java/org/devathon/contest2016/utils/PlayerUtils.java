@@ -16,7 +16,7 @@ public class PlayerUtils {
     public static void sendErrorMessage(Player player, String message) {
         player.sendMessage(Constants.TAG + Constants.ERROR_COLOR + message);
     }
-    public static void sentSuccessMessage(Player player, String message) {
+    public static void sendSuccessMessage(Player player, String message) {
         player.sendMessage(Constants.TAG + Constants.SUCCESS_COLOR + message);
     }
     public static void playErrorSound(Player player) {
