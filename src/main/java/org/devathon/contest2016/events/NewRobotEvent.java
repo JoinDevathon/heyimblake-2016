@@ -15,6 +15,7 @@ public class NewRobotEvent extends Event {
 
     private Player player;
     private Robot robot;
+    private static final HandlerList handlers = new HandlerList();
 
     public NewRobotEvent(Robot robot) {
         this.player = robot.getPlayer();
@@ -23,6 +24,8 @@ public class NewRobotEvent extends Event {
 
     @Override
     public HandlerList getHandlers() {
-        return getHandlers();
+        return handlers;
     }
+
+
 }

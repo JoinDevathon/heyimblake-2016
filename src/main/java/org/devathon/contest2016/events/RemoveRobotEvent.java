@@ -14,6 +14,7 @@ import org.devathon.contest2016.robotutils.Robot;
 public class RemoveRobotEvent extends Event {
     private Robot robot;
     private Player player;
+    private static final HandlerList handlers = new HandlerList();
 
     public RemoveRobotEvent(Robot robot) {
         this.robot = robot;
@@ -30,6 +31,6 @@ public class RemoveRobotEvent extends Event {
 
     @Override
     public HandlerList getHandlers() {
-        return getHandlers();
+        return handlers;
     }
 }
