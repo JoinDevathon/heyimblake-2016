@@ -38,11 +38,6 @@ public class LanguageMenuListener implements Listener {
         if (clickedItem.getType() == Material.BOOK_AND_QUILL) {
             for (Language language : Language.values()) {
                 if (ChatColor.stripColor(clickedItem.getItemMeta().getDisplayName()).equals(language.getFullName())) {
-                    if (LanguageManager.getLanguage(player).getAbbreviation().equals(language.getAbbreviation())) {
-                        PlayerUtils.playErrorSound(player);
-                        PlayerUtils.sendErrorMessage(player, language.getTranslation("localization.message.setlang.fail"));
-                        return;
-                    }
                     player.closeInventory();
                     LanguageManager.setLanguage(player, language);
                     PlayerUtils.playClickSound(player);
