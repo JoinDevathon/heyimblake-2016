@@ -1,1 +1,9 @@
-{}
+{
+  "general.command.playernotfound" : "Sorry, that player couldn't be found. Are you sure that they're online, or their name is spelt correctly?",
+  "command.toggle.success.roboton": "You've made %s a Robot!",
+  "command.toggle.success.robotoff": "You've made %s a human again!",
+  "localization.menu.title": "Select a Language",
+  "localization.menu.item.lore.clicktoselect": "Click to select!",
+  "localization.menu.item.lore.alreadyselected": "Already selected!",
+  "general.item.name.cancel": "Cancel"
+}
