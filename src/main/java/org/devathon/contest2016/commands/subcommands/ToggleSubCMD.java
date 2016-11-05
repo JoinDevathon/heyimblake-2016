@@ -1,9 +1,17 @@
 package org.devathon.contest2016.commands.subcommands;
 
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.devathon.contest2016.commands.AnnotatedRobotSubCommand;
 import org.devathon.contest2016.commands.RobotSubCommandExecutor;
 import org.devathon.contest2016.commands.RobotSubCommandHandler;
+import org.devathon.contest2016.localization.Language;
+import org.devathon.contest2016.localization.LanguageManager;
+import org.devathon.contest2016.robotutils.Robot;
+import org.devathon.contest2016.robotutils.RobotCreator;
+import org.devathon.contest2016.robotutils.RobotManager;
+import org.devathon.contest2016.utils.Constants;
+import org.devathon.contest2016.utils.PlayerUtils;
 
 /**
  * Created by heyimblake on 11/5/2016.
@@ -26,5 +34,19 @@ public class ToggleSubCMD extends AnnotatedRobotSubCommand {
     @Override
     public void runPlayer() {
         Player player = ((Player) getHandler().getCommandSender());
+        Player target = Bukkit.getPlayer(getHandler().getArgs()[0]);
+        Language language = LanguageManager.getLanguage(player);
+        if (target == null) {
+            PlayerUtils.sendErrorMessage(player, language.getTranslation("general.command.playernotfound"));
+            return;
+        }
+        if (!RobotManager.getInstance().isRobot(target)) {
+            Robot targetRobot = new RobotCreator().setPlayer(target).create();
+            PlayerUtils.sentSuccessMessage(player, language.getFormattedTranslation("command.toggle.success.roboton", targetRobot.getPlayer().getName()));
+            return;
+        }
+        Robot targetRobot = RobotManager.getInstance().getRobotOf(target);
+        targetRobot.remove();
+        PlayerUtils.sentSuccessMessage(player, language.getFormattedTranslation("command.toggle.success.robotoff", target.getName()));
     }
 }
