@@ -39,5 +39,6 @@
   "gadget.laservision.name": "Laser Vision",
   "listener.playermove.rustybootsalert": "Oh no! You went in the water and your boots became rusty! This'll slow you down.",
   "itemstack.bearobot.name": "Become a Robot",
-  "itemstack.beahuman.name": "Exit Robot Mode"
+  "itemstack.beahuman.name": "Exit Robot Mode",
+  "listener.playerjoin.message": "Hi! Please run %s for more information about this entry. Thanks!"
 }

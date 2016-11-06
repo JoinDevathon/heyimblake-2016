@@ -1,6 +1,7 @@
 package org.devathon.contest2016.gadget.gadgets;
 
 import org.bukkit.Material;
+import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.devathon.contest2016.DevathonPlugin;
@@ -36,5 +37,6 @@ public class LaserVisionGadget extends Gadget {
     @Override
     public void run(Player player) {
         new LaserEyesParticleSpawnThread(player.getEyeLocation()).runTaskTimer(DevathonPlugin.getInstance(), 0, 5L);
+        player.playSound(player.getLocation(), Sound.ITEM_BOTTLE_FILL_DRAGONBREATH, 10, 1);
     }
 }

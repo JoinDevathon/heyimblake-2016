@@ -32,5 +32,6 @@
   "gadget.laservision.name": "Visi\u00F3n de L\u00E1ser",
   "listener.playermove.rustybootsalert": "\u00A1Ay no!  \u00A1Entraste en el agua y tus botas se convirtieron en oxidado! Esto le har\u00E1 caminar m\u00E1s lento.",
   "itemstack.bearobot.name": "Ser un Robot",
-  "itemstack.beahuman.name": "Salga el Modo de Robot"
+  "itemstack.beahuman.name": "Salga el Modo de Robot",
+  "listener.playerjoin.message": "\u00A1Hola! Por favor usa el comando %s para aprender m\u00E1s sobre esta entrega. \u00A1Gracias!"
 }

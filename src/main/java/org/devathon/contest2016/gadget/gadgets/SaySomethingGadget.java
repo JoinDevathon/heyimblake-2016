@@ -3,6 +3,7 @@ package org.devathon.contest2016.gadget.gadgets;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.scheduler.BukkitRunnable;
@@ -56,6 +57,7 @@ public class SaySomethingGadget extends Gadget {
 
     @Override
     public void run(Player player) {
+        player.playSound(player.getLocation(), Sound.ENTITY_VILLAGER_AMBIENT, 10, 1);
         Language language = LanguageManager.getLanguage(player);
         Hologram hologram = new Hologram(ChatColor.GOLD + String.valueOf(languageSetMap.get(language).toArray()[new Random().nextInt(languageSetMap.get(language).size())]));
         Location location = player.getLocation();
