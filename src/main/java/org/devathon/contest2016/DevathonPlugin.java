@@ -53,6 +53,8 @@ public class DevathonPlugin extends JavaPlugin {
         pluginManager.registerEvents(new PlayerInventoryClickListener(), this);
         pluginManager.registerEvents(new PlayerInteractListener(), this);
         pluginManager.registerEvents(new PlayerMoveListener(), this);
+        pluginManager.registerEvents(new PlayerItemInteractListener(), this);
+        pluginManager.registerEvents(new AsyncChatListener(), this);
     }
 
     private void initializeThreads() {
