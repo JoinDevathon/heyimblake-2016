@@ -64,7 +64,7 @@ public class CommonItemStacks {
     public static ItemStack becomeRobot(Language language) {
         ItemStack itemStack = new ItemStack(Material.MAGMA_CREAM, 1);
         ItemMeta itemMeta = itemStack.getItemMeta();
-        itemMeta.setDisplayName(ChatColor.AQUA + language.getTranslation("itemstack.bearobot.name" + ChatColor.GRAY + " " + language.getTranslation("itemstack.general.rightclick")));
+        itemMeta.setDisplayName(ChatColor.AQUA + language.getTranslation("itemstack.bearobot.name") + ChatColor.GRAY + " " + language.getTranslation("itemstack.general.rightclick"));
         itemStack.setItemMeta(itemMeta);
         return itemStack;
     }

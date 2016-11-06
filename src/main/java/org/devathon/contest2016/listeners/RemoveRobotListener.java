@@ -4,6 +4,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.inventory.PlayerInventory;
+import org.bukkit.potion.PotionEffectType;
 import org.devathon.contest2016.events.RemoveRobotEvent;
 import org.devathon.contest2016.gadget.GadgetManager;
 import org.devathon.contest2016.localization.Language;
@@ -35,6 +36,7 @@ public class RemoveRobotListener implements Listener {
 
         player.setFlying(false);
         player.setAllowFlight(false);
+        player.removePotionEffect(PotionEffectType.SLOW);
 
         language.getRobotActiveBar().removePlayer(player);
         language.getRobotNotActiveBar().addPlayer(player);
