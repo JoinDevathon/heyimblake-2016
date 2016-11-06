@@ -25,11 +25,17 @@ public class NewRobotListener implements Listener {
         Language language = LanguageManager.getLanguage(player);
         PlayerUtils.sendSuccessMessage(player, LanguageManager.getLanguage(player).getFormattedTranslation("listener.newrobot.message", event.getRobot().getRobotName()));
         player.playSound(player.getLocation(), Sound.BLOCK_ANVIL_LAND, 10, 1);
+
         PlayerInventory inventory = player.getInventory();
         inventory.setHelmet(CommonItemStacks.helmet(language));
         inventory.setChestplate(CommonItemStacks.chestplate(language));
         inventory.setLeggings(CommonItemStacks.leggings(language));
         inventory.setBoots(CommonItemStacks.boots(language));
+
+        if (inventory.contains(CommonItemStacks.becomeRobot(language))) {
+            inventory.remove(CommonItemStacks.becomeRobot(language));
+            inventory.addItem(CommonItemStacks.becomeHuman(language));
+        }
 
         player.setAllowFlight(true);
         player.setFlying(true);

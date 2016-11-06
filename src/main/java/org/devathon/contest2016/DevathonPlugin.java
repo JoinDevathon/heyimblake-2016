@@ -52,11 +52,11 @@ public class DevathonPlugin extends JavaPlugin {
         pluginManager.registerEvents(new NewRobotListener(), this);
         pluginManager.registerEvents(new PlayerInventoryClickListener(), this);
         pluginManager.registerEvents(new PlayerInteractListener(), this);
+        pluginManager.registerEvents(new PlayerMoveListener(), this);
     }
 
     private void initializeThreads() {
         new RobotFlyingParticleThread().runTaskTimer(this, 0L, 3L);
-        new LaserEyesParticleSpawnThread().runTaskTimer(this, 0L, 3L);
     }
 
 }

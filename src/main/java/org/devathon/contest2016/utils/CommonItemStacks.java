@@ -52,4 +52,28 @@ public class CommonItemStacks {
         itemStack.setItemMeta(itemMeta);
         return itemStack;
     }
+
+    public static ItemStack rustyBoots(Language language) {
+        ItemStack itemStack = new ItemStack(Material.LEATHER_BOOTS, 1);
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        itemMeta.setDisplayName(ChatColor.GOLD + language.getTranslation("itemstack.robotarmor.rustyboots.name"));
+        itemStack.setItemMeta(itemMeta);
+        return itemStack;
+    }
+
+    public static ItemStack becomeRobot(Language language) {
+        ItemStack itemStack = new ItemStack(Material.MAGMA_CREAM, 1);
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        itemMeta.setDisplayName(ChatColor.AQUA + language.getTranslation("itemstack.bearobot.name" + ChatColor.GRAY + " " + language.getTranslation("itemstack.general.rightclick")));
+        itemStack.setItemMeta(itemMeta);
+        return itemStack;
+    }
+
+    public static ItemStack becomeHuman(Language language) {
+        ItemStack itemStack = new ItemStack(Material.SLIME_BALL, 1);
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        itemMeta.setDisplayName(ChatColor.AQUA + language.getTranslation("itemstack.beahuman.name") + ChatColor.GRAY + " " + language.getTranslation("itemstack.general.rightclick"));
+        itemStack.setItemMeta(itemMeta);
+        return itemStack;
+    }
 }

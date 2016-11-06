@@ -28,6 +28,10 @@ public class RemoveRobotListener implements Listener {
         inventory.setChestplate(null);
         inventory.setLeggings(null);
         inventory.setBoots(null);
+        if (inventory.contains(CommonItemStacks.becomeHuman(language))) {
+            inventory.remove(CommonItemStacks.becomeHuman(language));
+            inventory.addItem(CommonItemStacks.becomeRobot(language));
+        }
 
         player.setFlying(false);
         player.setAllowFlight(false);
