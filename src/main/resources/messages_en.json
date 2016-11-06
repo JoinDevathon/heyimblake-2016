@@ -21,6 +21,7 @@
   "itemstack.robotarmor.chestplate.name": "Chest of Steel",
   "itemstack.robotarmor.leggings.name": "Cast Iron Leggings",
   "itemstack.robotarmor.boots.name": "Heavy Boots",
+  "itemstack.robotarmor.rustyboots.name": "Rusty Boots",
   "itemstack.general.rightclick": "(Right Click)",
   "gadget.message.oncooldown": "You can use this in %s seconds.",
   "gadget.saysomething.name": "Say Something!",
@@ -28,5 +29,8 @@
   "gadget.saysomething.msg2": "I'm a robot",
   "gadget.saysomething.msg3": "ERROR ERROR",
   "gadget.saysomething.msg4": "I need to remove this rust...",
-  "gadget.laservision.name": "Laser Vision"
+  "gadget.laservision.name": "Laser Vision",
+  "listener.playermove.rustybootsalert": "Oh no! You went in the water and your boots became rusty! This'll slow you down.",
+  "itemstack.bearobot.name": "Become a Robot",
+  "itemstack.beahuman.name": "Exit Robot Mode"
 }

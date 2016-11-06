@@ -46,7 +46,7 @@ public class RobotBaseCommand implements CommandExecutor {
         Language language = LanguageManager.getLanguage(player);
         if (strings.length == 0) {
             if (!RobotManager.getInstance().isRobot(player)) {
-                Robot targetRobot = new RobotCreator().setPlayer(player).create();
+                new RobotCreator().setPlayer(player).create();
                 return true;
             }
             Robot targetRobot = RobotManager.getInstance().getRobotOf(player);

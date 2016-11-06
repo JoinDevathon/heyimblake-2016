@@ -38,5 +38,6 @@ public class Hologram {
         this.armorStand.setVisible(false);
         this.armorStand.setCustomName(this.text);
         this.armorStand.setCustomNameVisible(true);
+        this.armorStand.setInvulnerable(true);
     }
 }
