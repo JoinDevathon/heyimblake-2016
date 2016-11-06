@@ -33,7 +33,9 @@ public class PlayerMoveListener implements Listener {
         if (location.getBlock() == null)
             return;
         if (location.getBlock().getType() == Material.WATER || location.getBlock().getType() == Material.STATIONARY_WATER) {
-            if (player.getInventory().getBoots().getType() != null && player.getInventory().getBoots().getType() != Material.LEATHER_BOOTS) {
+            if (player.getInventory().getBoots() == null)
+                return;
+            if (player.getInventory().getBoots().getType() != Material.LEATHER_BOOTS) {
                 player.getInventory().setBoots(CommonItemStacks.rustyBoots(language));
                 PlayerUtils.sendErrorMessage(player, language.getTranslation("listener.playermove.rustybootsalert"));
                 player.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, Integer.MAX_VALUE, 1), true);
