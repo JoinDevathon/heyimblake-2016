@@ -12,13 +12,17 @@ import org.devathon.contest2016.robotutils.Robot;
  *         https://heyimblake.me
  */
 public class RemoveRobotEvent extends Event {
+    private static final HandlerList handlers = new HandlerList();
     private Robot robot;
     private Player player;
-    private static final HandlerList handlers = new HandlerList();
 
     public RemoveRobotEvent(Robot robot) {
         this.robot = robot;
         this.player = robot.getPlayer();
+    }
+
+    public static HandlerList getHandlerList() {
+        return handlers;
     }
 
     public Robot getRobot() {
@@ -31,10 +35,6 @@ public class RemoveRobotEvent extends Event {
 
     @Override
     public HandlerList getHandlers() {
-        return handlers;
-    }
-
-    public static HandlerList getHandlerList() {
         return handlers;
     }
 }

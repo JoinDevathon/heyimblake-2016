@@ -16,10 +16,10 @@ import org.devathon.contest2016.utils.PlayerUtils;
  *         https://heyimblake.me
  */
 @RobotSubCommandExecutor(subCommand = "info",
-syntax = "",
-description = "Sends a giant wall of text about this submission.",
-requiresArguments = false,
-mustBeRobot = false)
+        syntax = "",
+        description = "Sends a giant wall of text about this submission.",
+        requiresArguments = false,
+        mustBeRobot = false)
 public class InfoSubCMD extends AnnotatedRobotSubCommand {
 
     public InfoSubCMD(RobotSubCommandHandler robotSubCommandHandler) {

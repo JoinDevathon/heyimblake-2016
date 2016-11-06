@@ -18,7 +18,6 @@ import org.devathon.contest2016.threads.LaserEyesParticleSpawnThread;
 public class LaserVisionGadget extends Gadget {
 
 
-
     @Override
     public String name(Language language) {
         return language.getTranslation("gadget.laservision.name");

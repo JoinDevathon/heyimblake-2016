@@ -53,7 +53,7 @@ public enum Language {
     }
 
     public String getTranslation(String key) {
-       return this == ENGLISH ? ChatColor.translateAlternateColorCodes('&', this.stringsMap.getOrDefault(key, "Invalid Key: " + key)) : ChatColor.translateAlternateColorCodes('&', this.stringsMap.getOrDefault(key, ENGLISH.getTranslation(key)));
+        return this == ENGLISH ? ChatColor.translateAlternateColorCodes('&', this.stringsMap.getOrDefault(key, "Invalid Key: " + key)) : ChatColor.translateAlternateColorCodes('&', this.stringsMap.getOrDefault(key, ENGLISH.getTranslation(key)));
     }
 
     public String getFormattedTranslation(String key, Object... params) {

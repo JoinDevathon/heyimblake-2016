@@ -68,6 +68,6 @@ public class SaySomethingGadget extends Gadget {
             public void run() {
                 hologram.despawn();
             }
-        }.runTaskLater(DevathonPlugin.getInstance(), 3*20L);
+        }.runTaskLater(DevathonPlugin.getInstance(), 3 * 20L);
     }
 }

@@ -15,8 +15,11 @@ import org.devathon.contest2016.localization.Language;
  */
 public abstract class Gadget {
     public abstract String name(Language language);
+
     public abstract ItemStack itemStack();
+
     public abstract double usageDelay();
+
     public abstract void run(Player player);
 
     public ItemStack getItem(Language language) {

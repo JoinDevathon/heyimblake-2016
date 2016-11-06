@@ -19,11 +19,11 @@ import org.devathon.contest2016.utils.PlayerUtils;
  *         https://heyimblake.me
  */
 @RobotSubCommandExecutor(subCommand = "toggle",
-syntax = "<Player>",
-description = "Forces the Robot status of a player to be toggled.",
-requiresArguments = true,
-mustBeRobot = false,
-opOnly = true)
+        syntax = "<Player>",
+        description = "Forces the Robot status of a player to be toggled.",
+        requiresArguments = true,
+        mustBeRobot = false,
+        opOnly = true)
 public class ToggleSubCMD extends AnnotatedRobotSubCommand {
 
     public ToggleSubCMD(RobotSubCommandHandler robotSubCommandHandler) {

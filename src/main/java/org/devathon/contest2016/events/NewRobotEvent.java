@@ -13,13 +13,17 @@ import org.devathon.contest2016.robotutils.Robot;
  */
 public class NewRobotEvent extends Event {
 
+    private static final HandlerList handlers = new HandlerList();
     private Player player;
     private Robot robot;
-    private static final HandlerList handlers = new HandlerList();
 
     public NewRobotEvent(Robot robot) {
         this.player = robot.getPlayer();
         this.robot = robot;
+    }
+
+    public static HandlerList getHandlerList() {
+        return handlers;
     }
 
     @Override
@@ -33,9 +37,5 @@ public class NewRobotEvent extends Event {
 
     public Robot getRobot() {
         return robot;
-    }
-
-    public static HandlerList getHandlerList() {
-        return handlers;
     }
 }

@@ -13,11 +13,11 @@ import org.devathon.contest2016.localization.LanguageMenu;
  *         https://heyimblake.me
  */
 @RobotSubCommandExecutor(subCommand = "language",
-syntax = "<Language>",
-description = "Set your language.",
-requiresArguments = false,
-mustBeRobot = false,
-opOnly = false)
+        syntax = "<Language>",
+        description = "Set your language.",
+        requiresArguments = false,
+        mustBeRobot = false,
+        opOnly = false)
 public class LanguageSubCMD extends AnnotatedRobotSubCommand {
 
     public LanguageSubCMD(RobotSubCommandHandler robotSubCommandHandler) {

@@ -13,11 +13,11 @@ import java.util.Map;
  */
 public class RobotManager {
     private static RobotManager instance = new RobotManager();
+    public Map<Player, Robot> playerRobotMap = new HashMap<>();
+
     public static RobotManager getInstance() {
         return instance;
     }
-
-    public Map<Player, Robot> playerRobotMap = new HashMap<>();
 
     public boolean isRobot(Player player) {
         return playerRobotMap.containsKey(player);

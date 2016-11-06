@@ -6,7 +6,6 @@ import org.bukkit.plugin.java.JavaPlugin;
 import org.devathon.contest2016.commands.RobotBaseCommand;
 import org.devathon.contest2016.listeners.*;
 import org.devathon.contest2016.localization.Language;
-import org.devathon.contest2016.threads.LaserEyesParticleSpawnThread;
 import org.devathon.contest2016.threads.RobotFlyingParticleThread;
 
 import java.util.Arrays;
