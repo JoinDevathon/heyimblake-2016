@@ -9,6 +9,7 @@ import org.bukkit.inventory.ItemStack;
 import org.devathon.contest2016.gadget.GadgetManager;
 import org.devathon.contest2016.localization.Language;
 import org.devathon.contest2016.localization.LanguageManager;
+import org.devathon.contest2016.localization.LanguageMenu;
 import org.devathon.contest2016.robotutils.RobotManager;
 import org.devathon.contest2016.utils.CommonItemStacks;
 
@@ -38,6 +39,11 @@ public class PlayerInteractListener implements Listener {
         if (clickedItem.getItemMeta().getDisplayName().equals(CommonItemStacks.becomeHuman(language).getItemMeta().getDisplayName())) {
             if (RobotManager.getInstance().isRobot(player))
                 RobotManager.getInstance().getRobotOf(player).remove();
+            return;
+        }
+
+        if (clickedItem.getItemMeta().getDisplayName().equals(CommonItemStacks.changeLanguage(language).getItemMeta().getDisplayName())) {
+            LanguageMenu.showToPlayer(player);
             return;
         }
 

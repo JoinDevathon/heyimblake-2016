@@ -45,6 +45,7 @@ public class PlayerJoinListener implements Listener {
         inventory.remove(CommonItemStacks.becomeRobot(language));
         inventory.remove(CommonItemStacks.becomeHuman(language));
         inventory.setItemInMainHand(CommonItemStacks.becomeRobot(language));
+        inventory.addItem(CommonItemStacks.changeLanguage(language));
 
 
         player.setFlying(false);

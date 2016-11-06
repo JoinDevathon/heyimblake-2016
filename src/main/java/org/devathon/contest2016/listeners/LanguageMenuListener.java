@@ -57,12 +57,13 @@ public class LanguageMenuListener implements Listener {
                         player.getInventory().setChestplate(CommonItemStacks.chestplate(language));
                         player.getInventory().setLeggings(CommonItemStacks.leggings(language));
                         player.getInventory().setBoots(CommonItemStacks.boots(language));
+                        player.getInventory().addItem(CommonItemStacks.changeLanguage(language));
                         return;
                     }
                     language.getRobotActiveBar().removePlayer(player);
                     language.getRobotNotActiveBar().addPlayer(player);
                     player.getInventory().addItem(CommonItemStacks.becomeRobot(language));
-
+                    player.getInventory().addItem(CommonItemStacks.changeLanguage(language));
                 }
             }
             return;

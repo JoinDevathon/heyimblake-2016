@@ -76,4 +76,12 @@ public class CommonItemStacks {
         itemStack.setItemMeta(itemMeta);
         return itemStack;
     }
+
+    public static ItemStack changeLanguage(Language language) {
+        ItemStack itemStack = new ItemStack(Material.BOOK, 1);
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        itemMeta.setDisplayName(ChatColor.YELLOW + language.getTranslation("localization.menu.title")  + ChatColor.GRAY + " " + language.getTranslation("itemstack.general.rightclick"));
+        itemStack.setItemMeta(itemMeta);
+        return itemStack;
+    }
 }
