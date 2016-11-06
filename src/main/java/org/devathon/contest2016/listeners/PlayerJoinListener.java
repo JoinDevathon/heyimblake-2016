@@ -6,12 +6,8 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.inventory.PlayerInventory;
 import org.bukkit.potion.PotionEffectType;
-import org.bukkit.scheduler.BukkitRunnable;
-import org.devathon.contest2016.DevathonPlugin;
 import org.devathon.contest2016.localization.Language;
 import org.devathon.contest2016.localization.LanguageManager;
-import org.devathon.contest2016.localization.LanguageMenu;
-import org.devathon.contest2016.robotutils.RobotManager;
 import org.devathon.contest2016.utils.CommonItemStacks;
 
 /**
@@ -24,15 +20,9 @@ public class PlayerJoinListener implements Listener {
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event) {
         Player player = event.getPlayer();
-        new BukkitRunnable() {
-            @Override
-            public void run() {
-                LanguageMenu.showToPlayer(player);
-            }
-        }.runTaskLater(DevathonPlugin.getInstance(), 20L);
-
         PlayerInventory inventory = player.getInventory();
         Language language = LanguageManager.getLanguage(player);
+
         if (inventory.getHelmet() == CommonItemStacks.helmet(language))
             inventory.setHelmet(null);
         if (inventory.getChestplate() == CommonItemStacks.chestplate(language))
@@ -46,7 +36,6 @@ public class PlayerJoinListener implements Listener {
         inventory.remove(CommonItemStacks.becomeHuman(language));
         inventory.setItemInMainHand(CommonItemStacks.becomeRobot(language));
         inventory.addItem(CommonItemStacks.changeLanguage(language));
-
 
         player.setFlying(false);
         player.setAllowFlight(false);
